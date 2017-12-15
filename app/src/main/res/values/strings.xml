@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DayUnity</string>
+    <string name="nome">Alimento</string>
+    <string name="descricao">Descrição Alimento</string>
+    <string name="diaSemana">Dia da Semana</string>
+
 </resources>
