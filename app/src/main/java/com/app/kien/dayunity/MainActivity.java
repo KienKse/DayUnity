@@ -16,12 +16,15 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.security.interfaces.DSAKey;
 import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
     private Alimento[] alimentos;
+
+    AlimentoDAO alimentoX = new AlimentoDAO(new Banco(this));
 
     private ListView lista;
 
@@ -35,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
         final ArrayList<String> listAlimento = new ArrayList<String>();
 
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listAlimento);
-
+        final List<Alimento> ali = alimentoX.listar();
         lista.setAdapter(adapter);
 
         AsyncHttpClient client = new AsyncHttpClient();
-
 
         client.get(
                 "https://raw.githubusercontent.com/KienKse/DayUnity/master/json/dayunity.json",
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                                 for(Alimento alimento : alimentos) {
                                     adapter.add(alimento.getNome());
                                 }
-
                             }
         });
 

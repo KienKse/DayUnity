@@ -25,31 +25,24 @@ public class DetalheActivity extends AppCompatActivity {
         String diaSemana = "";
         String imagemUrl = "";
 
-
         Intent help = DetalheActivity.this.getIntent();
 
-        if (help.hasExtra("nome")) {
-            nome = help.getStringExtra("nome");
-        }
-        if (help.hasExtra("descricao")) {
-            descricao = help.getStringExtra("descricao");
-        }
-        if (help.hasExtra("diaDaSemana")) {
-            diaSemana = help.getStringExtra("diaDaSemana");
-        }
-        if (help.hasExtra("imagem")) {
-            imagemUrl = help.getStringExtra("imagem");
-        }
+        nome = verificarExtra("nome", help);
+        descricao = verificarExtra("descricao", help);
+        diaSemana = verificarExtra("diaDaSemana", help);
+        imagemUrl = verificarExtra("imagem", help);
 
         nomeProduto.setText(nome);
         descricaoProduto.setText(descricao);
         diaSemanaProduto.setText(diaSemana);
         Picasso.with(this).load(imagemUrl).into(img);
 
-        /*
-        Glide.with(context)
-                .load("https://inthecheesefactory.com/uploads/source/glidepicasso/gifanimation2.gif")
-                .into(idDoTeuImageView);
-        */
+    }
+
+    private String verificarExtra(String intentCampo, Intent help) {
+        if (help.hasExtra(intentCampo)) {
+            return help.getStringExtra(intentCampo);
+        }
+        return "";
     }
 }
