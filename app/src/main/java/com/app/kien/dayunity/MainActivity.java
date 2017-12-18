@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("descricao", alimentos[i].getDescricao());
                 intent.putExtra("diaDaSemana", alimentos[i].getDiaDaSemana());
                 intent.putExtra("imagem", alimentos[i].getImagem());
-
                 startActivity(intent);
             }
         });
