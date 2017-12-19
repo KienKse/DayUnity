@@ -28,7 +28,7 @@ public class SplashS extends AppCompatActivity {
             Thread timer = new Thread(){
                 public void run(){
                     try{
-                        sleep(5000);
+                        sleep(2500);
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }

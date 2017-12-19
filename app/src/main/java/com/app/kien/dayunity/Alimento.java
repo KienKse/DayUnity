@@ -1,20 +1,18 @@
 package com.app.kien.dayunity;
 
+import java.io.Serializable;
+
 /**
  * Created by Kien on 11/12/2017.
  */
 
-public class Alimento {
+public class Alimento implements Serializable {
 
     private Integer id;
     private String nome;
     private String descricao;
     private String diaDaSemana;
     private String imagem;
-
-    public Alimento() {
-        super();
-    }
 
     public Alimento(String nome, String descricao, String diaDaSemana, String imagem) {
         this.nome = nome;

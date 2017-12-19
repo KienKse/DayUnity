@@ -32,7 +32,7 @@ public class AlimentoDAO {
     public List<Alimento> listar() {
         List<Alimento> lista = new ArrayList<>();
 
-        Cursor c = bd.getReadableDatabase().query("alimentos", new String[]{"nome,diasemana,descricao,imageurl"}, null, null, null, null, null);
+        Cursor c = bd.getReadableDatabase().query("alimentos", new String[]{"nome,descricao,diasemana,imageurl"}, null, null, null, null, null);
         Log.d("APK", c.getCount() + "");
         if (c.moveToNext()) {
             c.moveToFirst();

@@ -12,8 +12,8 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 public class Banco extends SQLiteOpenHelper {
 
-    public static final String BANCO = "dayunity.bd";
-    public static final int VERSAO = 3;
+    public static final String BANCO = "Dayunity_BD";
+    public static final int VERSAO = 11;
     private Context context;
 
     public static final String TABELA = "ALIMENTOS";
