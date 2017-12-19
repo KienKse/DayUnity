@@ -13,7 +13,7 @@ import com.loopj.android.http.TextHttpResponseHandler;
 public class Banco extends SQLiteOpenHelper {
 
     public static final String BANCO = "Dayunity_BD";
-    public static final int VERSAO = 11;
+    public static final int VERSAO = 13;
     private Context context;
 
     public static final String TABELA = "ALIMENTOS";

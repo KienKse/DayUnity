@@ -15,8 +15,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.io.Serializable;
-import java.security.interfaces.DSAKey;
-import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -25,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Alimento[] alimentos;
     private Boolean verificarBD;
+
     AlimentoDAO alimentoX = new AlimentoDAO(new Banco(this));
 
     private ListView lista;
@@ -33,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final String dia = (String) getIntent().getSerializableExtra("diaDaSemana");
 
         lista = (ListView) findViewById(R.id.listView1);
 
@@ -62,12 +63,21 @@ public class MainActivity extends AppCompatActivity {
                         alimentos = gson.fromJson(responseString, Alimento[].class);
                         adapter.clear();
 
+                        if (alimentoX.listar().isEmpty()) {
+                            verificarBD = true;
+                        } else {
+                            verificarBD = false;
+                        }
+
                         for(Alimento alimento : alimentos) {
-                            adapter.add(alimento);
-                            if (alimentoX.listar().isEmpty()) {
-                               alimentoX.insert(alimento);
+                            if(alimento.getDiaDaSemana().equalsIgnoreCase(dia)) {
+                                adapter.add(alimento);
+                                if (verificarBD)
+                                    alimentoX.insert(alimento);
                             }
                         }
+                        // Seguro - Banco
+                        verificarBD = false;
                     }
                 });
 

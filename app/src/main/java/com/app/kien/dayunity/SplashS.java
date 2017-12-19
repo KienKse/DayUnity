@@ -12,23 +12,23 @@ import android.widget.TextView;
  */
 
 public class SplashS extends AppCompatActivity {
-        private TextView tv;
-        private ImageView iv;
+        private TextView textView;
+        private ImageView imageView;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_splash);
-            tv = (TextView) findViewById(R.id.tv);
-            iv = (ImageView) findViewById(R.id.iv);
+            textView = (TextView) findViewById(R.id.textViewSplash);
+            imageView = (ImageView) findViewById(R.id.imageViewSplash);
             Animation anima = AnimationUtils.loadAnimation(this,R.anim.transicao);
-            tv.startAnimation(anima);
-            iv.startAnimation(anima);
-            final Intent i = new Intent(this,MainActivity.class);
+            textView.startAnimation(anima);
+            imageView.startAnimation(anima);
+            final Intent i = new Intent(this,DayActivity.class);
             Thread timer = new Thread(){
                 public void run(){
                     try{
-                        sleep(2500);
+                        sleep(2000);
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }
