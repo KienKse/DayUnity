@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         for(Alimento alimento : alimentos) {
-                            if(alimento.getDiaDaSemana().equalsIgnoreCase(dia)) {
+                            if(alimento.getDiaDaSemana().equalsIgnoreCase(dia)||dia.equalsIgnoreCase("todos")) {
                                 adapter.add(alimento);
                                 if (verificarBD)
                                     alimentoX.insert(alimento);

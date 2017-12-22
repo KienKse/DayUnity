@@ -15,6 +15,7 @@ public class DayActivity extends AppCompatActivity {
     TextView quartaDay;
     TextView quintaDay;
     TextView sextaDay;
+    TextView todos;
 
 
     @Override
@@ -27,11 +28,14 @@ public class DayActivity extends AppCompatActivity {
         quartaDay = findViewById(R.id.quarta);
         quintaDay = findViewById(R.id.quinta);
         sextaDay = findViewById(R.id.sexta);
+        todos = findViewById(R.id.todos);
+
     }
 
     public String getDiaSemana(TextView tv) {
        return tv.getText().toString();
     }
+
     public void onClickSegunda(View view) {
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("diaDaSemana", getDiaSemana(segundaDay));
@@ -57,4 +61,13 @@ public class DayActivity extends AppCompatActivity {
         intent.putExtra("diaDaSemana", getDiaSemana(sextaDay));
         startActivity(intent);
     }
+
+    public void onClickTodos(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("diaDaSemana", getDiaSemana(todos));
+        startActivity(intent);
+    }
+
+
+
 }
